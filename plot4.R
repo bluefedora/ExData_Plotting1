@@ -55,7 +55,7 @@ legend("topright", col=c("black", "red", "blue"), lty=c(1, 1, 1), bty="n",
 plot(consumption$Time, consumption$Voltage, type="l", xlab="datetime",
      ylab="Voltage")
 
-plot(consumption$Time, consumption$Global_reactive_power, type="l", xlab="datetime",
-     ylab="Global_reactive_power")
+plot(consumption$Time, consumption$Global_reactive_power, type="l", 
+     xlab="datetime", ylab="Global_reactive_power")
 
 dev.off()

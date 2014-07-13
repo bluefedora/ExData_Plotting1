@@ -30,16 +30,9 @@ consumption <- subset(full.data.set, Date=="1/2/2007" | Date=="2/2/2007")
 #remove large data set from envirnoment
 rm(full.data.set)
 
-#build datetime character vector 
-#dv <- paste(consumption$Date, consumption$Time)
-
-#convert time characters to POSIXlt date/time class
-#consumption$Time <- strptime(dv, format="%d/%m/%Y %H:%M:%S")
-
-#convert date characters to date class
-#consumption$Date <- as.Date(consumption$Date, format="%d/%m/%Y")
-
+#produce plot1
 png("plot1.png")
-hist(consumption$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", col="red")
+hist(consumption$Global_active_power, main="Global Active Power", 
+     xlab="Global Active Power (kilowatts)", col="red")
 dev.off()
                         
