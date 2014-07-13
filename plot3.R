@@ -31,15 +31,20 @@ consumption <- subset(full.data.set, Date=="1/2/2007" | Date=="2/2/2007")
 rm(full.data.set)
 
 #build datetime character vector 
-#dv <- paste(consumption$Date, consumption$Time)
+dv <- paste(consumption$Date, consumption$Time)
 
 #convert time characters to POSIXlt date/time class
-#consumption$Time <- strptime(dv, format="%d/%m/%Y %H:%M:%S")
+consumption$Time <- strptime(dv, format="%d/%m/%Y %H:%M:%S")
 
 #convert date characters to date class
-#consumption$Date <- as.Date(consumption$Date, format="%d/%m/%Y")
+consumption$Date <- as.Date(consumption$Date, format="%d/%m/%Y")
 
-png("plot1.png")
-hist(consumption$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", col="red")
+#produce plot3
+png("plot3.png")
+plot(consumption$Time, consumption$Sub_metering_1, type="l", xlab="", 
+     ylab="Energy sub metering")
+lines(consumption$Time, consumption$Sub_metering_2, col="red")
+lines(consumption$Time, consumption$Sub_metering_3, col="blue")
+legend("topright", col=c("black", "red", "blue"), lty=c(1, 1, 1),
+       legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.off()
-                        
